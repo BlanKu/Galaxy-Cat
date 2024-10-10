@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class coinScript : MonoBehaviour
 {
-    public SceneVariables _sceneVariables;
+    GameObject _SceneVariables;
+    sceneVariables _sceneVariables;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _SceneVariables = GameObject.Find("SceneVariables");
+        _sceneVariables = _SceneVariables.GetComponent<sceneVariables>();
     }
 
     // Update is called once per frame

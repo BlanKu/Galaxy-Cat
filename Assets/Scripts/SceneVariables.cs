@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SceneVariables : MonoBehaviour
+public class sceneVariables : MonoBehaviour
 {
     public int score;
     public GameObject _ScoreText;
+    TextMeshProUGUI _TextMeshProUGUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _TextMeshProUGUI = _ScoreText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _ScoreText.GetComponent<TextMeshProUGUI>().text = score.ToString();
+       _TextMeshProUGUI.text = score.ToString();
     }
 }

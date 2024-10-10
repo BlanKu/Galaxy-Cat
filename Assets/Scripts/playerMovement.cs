@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class playerMovement : MonoBehaviour
     Rigidbody2D _rigidbody2D;
     Transform _transform;
     SpriteRenderer _spriteRender;
+
+    public GameObject _LeftButton;
+    public GameObject _RightButton;
+
+    Button _leftButtonButton;
+    Button _rightButtonButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,31 +26,43 @@ public class playerMovement : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _transform = GetComponent<Transform>();
         _spriteRender = GetComponent<SpriteRenderer>();
+
+        _leftButtonButton = _LeftButton.GetComponent<Button>();
+        _rightButtonButton = _RightButton.GetComponent<Button>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //_transform.Rotate(0, 0, Math.Abs(actualSpeed)*90);
 
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            _rigidbody2D.velocity = new Vector2(-speed,_rigidbody2D.velocity.y);
-            _spriteRender.flipX = false;
-            
+            PlayerGoLeft();
+
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _rigidbody2D.velocity = new Vector2(speed,_rigidbody2D.velocity.y);
-            _spriteRender.flipX = true;
+            PlayerGoRight();
         }
     }
 
     private void FixedUpdate()
     {
-        actualSpeed = Math.Round(_rigidbody2D.velocity.x,2);
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 1);
+        actualSpeed = Math.Round(_rigidbody2D.velocity.x, 2);
 
-        _transform.rotation = Quaternion.Euler(0, 0, -(float)actualSpeed * (90/speed));
+        _transform.rotation = Quaternion.Euler(0, 0, -(float)actualSpeed * (90 / speed));
+    }
+
+    public void PlayerGoLeft()
+    {
+        _rigidbody2D.velocity = new Vector2(-speed, _rigidbody2D.velocity.y);
+        _spriteRender.flipX = false;
+    }
+
+    public void PlayerGoRight()
+    {
+        _rigidbody2D.velocity = new Vector2(speed, _rigidbody2D.velocity.y);
+        _spriteRender.flipX = true;
     }
 }
+    
