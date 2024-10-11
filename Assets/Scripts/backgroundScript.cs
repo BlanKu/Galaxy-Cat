@@ -5,6 +5,7 @@ using UnityEngine;
 public class backgroundScript : MonoBehaviour
 {
     public float speed;
+    public float x_multiply;
     public float y_multiply;
 
     Rigidbody2D _rigidbody2D;
@@ -19,10 +20,14 @@ public class backgroundScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        _rigidbody2D.velocity = new Vector3(-speed, -speed*y_multiply, 3);
+        _rigidbody2D.velocity = new Vector3(-speed*x_multiply, -speed*y_multiply, 3);
         if(_transform.position.x <= -6)
         {
             _transform.position = new Vector3(0, 3, 3);
+        }
+        if (_transform.position.y <= -20)
+        {
+            Destroy(gameObject);
         }
     }
 }

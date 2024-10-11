@@ -17,6 +17,8 @@ public class playerMovement : MonoBehaviour
     public GameObject _LeftButton;
     public GameObject _RightButton;
 
+    public sceneVariables _sceneVariables;
+
     Button _leftButtonButton;
     Button _rightButtonButton;
     // Start is called before the first frame update
@@ -51,18 +53,23 @@ public class playerMovement : MonoBehaviour
         actualSpeed = Math.Round(_rigidbody2D.velocity.x, 2);
 
         _transform.rotation = Quaternion.Euler(0, 0, -(float)actualSpeed * (90 / speed));
+
     }
 
     public void PlayerGoLeft()
     {
         _rigidbody2D.velocity = new Vector2(-speed, _rigidbody2D.velocity.y);
         _spriteRender.flipX = false;
+        _sceneVariables.startGame = true;
+
     }
 
     public void PlayerGoRight()
     {
         _rigidbody2D.velocity = new Vector2(speed, _rigidbody2D.velocity.y);
         _spriteRender.flipX = true;
+        _sceneVariables.startGame = true;
+
     }
 }
     
