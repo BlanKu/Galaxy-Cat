@@ -18,6 +18,8 @@ public class sceneVariables : MonoBehaviour
     {
         _TextMeshProUGUI = _ScoreText.GetComponent<TextMeshProUGUI>();
 
+        StopGame();
+
     }
 
     // Update is called once per frame

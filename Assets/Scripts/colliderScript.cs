@@ -20,7 +20,8 @@ public class colliderScript : MonoBehaviour
     {
         if (collision != null)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
+            Debug.Log("Ude¿ono w collider!");
         }
     }
 }

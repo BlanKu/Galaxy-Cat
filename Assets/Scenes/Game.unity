@@ -516,8 +516,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 120, y: 0}
-  m_SizeDelta: {x: 250, y: 1100}
+  m_AnchoredPosition: {x: 100, y: 0}
+  m_SizeDelta: {x: 200, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752222910
 MonoBehaviour:
@@ -563,9 +563,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 739515591}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 739515596}
+        m_TargetAssemblyTypeName: playerMovement, Assembly-CSharp
+        m_MethodName: PlayerGoLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -624,7 +624,6 @@ GameObject:
   - component: {fileID: 781324058}
   - component: {fileID: 781324061}
   - component: {fileID: 781324060}
-  - component: {fileID: 781324059}
   m_Layer: 5
   m_Name: StartText
   m_TagString: Untagged
@@ -652,19 +651,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &781324059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781324057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985a62ac28357a34d9f6c482065e1d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameStarted: 0
 --- !u!114 &781324060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,8 +1103,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: 250, y: 1100}
+  m_AnchoredPosition: {x: -100, y: 0}
+  m_SizeDelta: {x: 200, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495662796
 MonoBehaviour:
@@ -1163,7 +1149,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1495662797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 739515596}
+        m_TargetAssemblyTypeName: playerMovement, Assembly-CSharp
+        m_MethodName: PlayerGoRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1495662797
 MonoBehaviour:
   m_ObjectHideFlags: 0
