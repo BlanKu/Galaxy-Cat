@@ -60,7 +60,7 @@ public class playerMovement : MonoBehaviour
     {
         _rigidbody2D.velocity = new Vector2(-speed, _rigidbody2D.velocity.y);
         _spriteRender.flipX = false;
-        _sceneVariables.startGame = true;
+        _sceneVariables.StartGame();
 
     }
 
@@ -68,7 +68,7 @@ public class playerMovement : MonoBehaviour
     {
         _rigidbody2D.velocity = new Vector2(speed, _rigidbody2D.velocity.y);
         _spriteRender.flipX = true;
-        _sceneVariables.startGame = true;
+        _sceneVariables.StartGame();
 
     }
 }

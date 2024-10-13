@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class colliderScript : MonoBehaviour
 {
+    sceneVariables _sceneVariables;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _sceneVariables = GameObject.Find("SceneVariables").GetComponent<sceneVariables>();
     }
 
     // Update is called once per frame
@@ -20,8 +22,8 @@ public class colliderScript : MonoBehaviour
     {
         if (collision != null)
         {
-            Time.timeScale = 0f;
             Debug.Log("Ude¿ono w collider!");
+            _sceneVariables.StopGame();
         }
     }
 }

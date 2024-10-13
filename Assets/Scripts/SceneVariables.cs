@@ -8,17 +8,18 @@ public class sceneVariables : MonoBehaviour
 {
     public int score;
     public GameObject _ScoreText;
-    public bool startGame;
 
     TextMeshProUGUI _TextMeshProUGUI;
 
     public GameObject _StartText;
+
+    public bool gameOver;
     // Start is called before the first frame update
     void Start()
     {
         _TextMeshProUGUI = _ScoreText.GetComponent<TextMeshProUGUI>();
 
-        StopGame();
+        Time.timeScale = 0;
 
     }
 
@@ -26,21 +27,20 @@ public class sceneVariables : MonoBehaviour
     void Update()
     {
        _TextMeshProUGUI.text = score.ToString();
-
-        if(startGame)
-        {
-            StartGame();
-        }
     }
 
     public void StartGame()
     {
-        _StartText.SetActive(false);
-        Time.timeScale = 1.0f;
+        if (!gameOver)
+        {
+            _StartText.SetActive(false);
+            Time.timeScale = 1.0f;
+        }
     }
 
     public void StopGame()
     {
         Time.timeScale = 0;
+        gameOver = true;
     }
 }
