@@ -7,6 +7,7 @@ public class backgroundScript : MonoBehaviour
     public float speed;
     public float x_multiply;
     public float y_multiply;
+    public float limiter;
 
     Rigidbody2D _rigidbody2D;
     Transform _transform;
@@ -21,13 +22,9 @@ public class backgroundScript : MonoBehaviour
     void FixedUpdate()
     {
         _rigidbody2D.velocity = new Vector3(-speed*x_multiply, -speed*y_multiply, 3);
-        if(_transform.position.x <= -6)
+        if(_transform.position.y <= limiter)
         {
-            _transform.position = new Vector3(0, 3, 3);
-        }
-        if (_transform.position.y <= -20)
-        {
-            Destroy(gameObject);
+            _transform.position = new Vector3(0, 3, 5);
         }
     }
 }
