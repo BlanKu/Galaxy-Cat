@@ -14,10 +14,16 @@ public class sceneVariables : MonoBehaviour
     public GameObject _StartText;
 
     public bool gameOver;
+
+    GameObject Player;
+
+    Animator _PlayerAnimatior;
     // Start is called before the first frame update
     void Start()
     {
         _TextMeshProUGUI = _ScoreText.GetComponent<TextMeshProUGUI>();
+        Player = GameObject.Find("Player");
+        _PlayerAnimatior = Player.GetComponent<Animator>();
 
         Time.timeScale = 0;
 
@@ -40,7 +46,7 @@ public class sceneVariables : MonoBehaviour
 
     public void StopGame()
     {
-        Time.timeScale = 0;
-        gameOver = true;
+        _PlayerAnimatior.Play("playerDeath");
+        gameOver = true;    
     }
 }
