@@ -1039,6 +1039,9 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+>>>>>>> parent of 634e8ac3 (Aktualizacja Tekstur)
+=======
 >>>>>>> parent of 634e8ac3 (Aktualizacja Tekstur)
 --- !u!1 &1495662794
 GameObject:
@@ -1253,7 +1256,11 @@ Transform:
   m_GameObject: {fileID: 1695853353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: 4}
+=======
+  m_LocalPosition: {x: 0, y: -1.7, z: 4}
+>>>>>>> parent of 634e8ac3 (Aktualizacja Tekstur)
 =======
   m_LocalPosition: {x: 0, y: -1.7, z: 4}
 >>>>>>> parent of 634e8ac3 (Aktualizacja Tekstur)
