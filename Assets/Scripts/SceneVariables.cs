@@ -17,13 +17,11 @@ public class sceneVariables : MonoBehaviour
 
     GameObject Player;
 
-    Animator _PlayerAnimatior;
     // Start is called before the first frame update
     void Start()
     {
         _TextMeshProUGUI = _ScoreText.GetComponent<TextMeshProUGUI>();
         Player = GameObject.Find("Player");
-        _PlayerAnimatior = Player.GetComponent<Animator>();
 
         Time.timeScale = 0;
 
@@ -46,7 +44,9 @@ public class sceneVariables : MonoBehaviour
 
     public void StopGame()
     {
-        _PlayerAnimatior.Play("playerDeath");
-        gameOver = true;    
+        gameOver = true;
+        Player.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+        Player.GetComponent<BoxCollider2D>().isTrigger = true;
+        Player.GetComponent<Animator>().Play("playerDeath");
     }
 }
