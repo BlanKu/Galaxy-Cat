@@ -12,16 +12,29 @@ public class sceneVariables : MonoBehaviour
     TextMeshProUGUI _TextMeshProUGUI;
 
     public GameObject _StartText;
+    GameObject GameOverUI;
 
     public bool gameOver;
 
     GameObject Player;
 
+    Rigidbody2D _playerRigidBody2D;
+    BoxCollider2D _playerBoxCollider2D;
+    Animator _playerAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         _TextMeshProUGUI = _ScoreText.GetComponent<TextMeshProUGUI>();
+        GameOverUI = GameObject.Find("GameOverUI");
+
         Player = GameObject.Find("Player");
+
+        _playerRigidBody2D = Player.GetComponent<Rigidbody2D>();
+        _playerBoxCollider2D = Player.GetComponent<BoxCollider2D>();
+        _playerAnimator = Player.GetComponent<Animator>();
+
+        GameOverUI.SetActive(false);
 
         Time.timeScale = 0;
 
@@ -45,8 +58,23 @@ public class sceneVariables : MonoBehaviour
     public void StopGame()
     {
         gameOver = true;
-        Player.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-        Player.GetComponent<BoxCollider2D>().isTrigger = true;
-        Player.GetComponent<Animator>().Play("playerDeath");
+        _playerRigidBody2D.gravityScale = 1.0f;
+        _playerBoxCollider2D.isTrigger = true;
+        _playerAnimator.Play("playerDeath");
+        GameOverScreen();
+    }
+
+    public void GameOverScreen()
+    {
+        GameOverUI.SetActive(true);
+    }
+
+    public IEnumerator PlayerRevive()
+    {
+        Player.transform.position = new Vector2(0, 0);
+        _playerRigidBody2D.gravityScale = 0;
+        _playerAnimator.Play("playerRevive");
+        yield return new WaitForSeconds(3);
+        _playerBoxCollider2D.isTrigger = false;
     }
 }
