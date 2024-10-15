@@ -69,12 +69,14 @@ public class sceneVariables : MonoBehaviour
         GameOverUI.SetActive(true);
     }
 
-    public IEnumerator PlayerRevive()
+    public void PlayerRevive()
     {
         Player.transform.position = new Vector2(0, 0);
         _playerRigidBody2D.gravityScale = 0;
+        _playerRigidBody2D.velocity = Vector2.zero;
         _playerAnimator.Play("playerRevive");
-        yield return new WaitForSeconds(3);
+        //yield return new WaitForSeconds(3);
         _playerBoxCollider2D.isTrigger = false;
+        GameOverUI.SetActive(false);
     }
 }
