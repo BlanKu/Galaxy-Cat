@@ -22,6 +22,11 @@ public class sceneVariables : MonoBehaviour
     BoxCollider2D _playerBoxCollider2D;
     Animator _playerAnimator;
 
+    GameObject Ads;
+
+    AdsInitializer _adsInitializer;
+    RewardedAdsButton _adsButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,11 @@ public class sceneVariables : MonoBehaviour
         _playerRigidBody2D = Player.GetComponent<Rigidbody2D>();
         _playerBoxCollider2D = Player.GetComponent<BoxCollider2D>();
         _playerAnimator = Player.GetComponent<Animator>();
+
+        Ads = GameObject.Find("Ads");
+
+        _adsInitializer = Ads.AddComponent<AdsInitializer>();
+        _adsButton = Ads.GetComponent<RewardedAdsButton>();
 
         GameOverUI.SetActive(false);
 
