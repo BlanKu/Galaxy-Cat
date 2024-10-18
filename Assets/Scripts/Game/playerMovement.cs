@@ -8,6 +8,8 @@ public class playerMovement : MonoBehaviour
 {
     public int speed;
     public double actualSpeed;
+    public int score;
+    public int recordScore;
 
     BoxCollider2D _boxColider2D;
     Rigidbody2D _rigidbody2D;
